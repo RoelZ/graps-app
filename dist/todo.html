@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+   <title>Up-to-speed with AngularJS</title>
+   <base href="/">
+ </head>
+ <body ng-app="todoListApp">
+     <div class="jumbotron jumbotron-fluid">
+       <div class="container">
+         <h1 class="display-3">Todo List App</h1>
+         <p class="lead">by AngularJS</p>
+       </div>
+     </div>
+     <div class="container">
+        <div class="row">
+          <div class="col" ng-controller="mainCtrl">
+          <button ng-click="addTodo()" class="btn btn-primary">+ Add a new task</button>
+          <br><br>
+              <ul class="list-group">
+                  <li ng-class="{'active':editing}" ng-repeat="todo in todos" class="form-group list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div class="custom-control custom-checkbox">
+                      <input ng-model="todo.completed" type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label ng-hide="editing" class="custom-control-label h5" for="customCheck1">
+                        {{todo.name}}
+                      </label>
+                      <input ng-change="todo.edited = true" ng-blur="editing = false" ng-show="editing" ng-model="todo.name" class="form-control form-control-lg" type="text" placeholder="">
+                      <span ng-show="todo.edited" class="badge badge-pill badge-primary">edited</span>
+                    </div>
+                    <div>
+                      <a class="btn btn-link" href="" ng-click="editing = !editing">edit</a>
+                      <a class="btn btn-link" href="" ng-click="saveTodo(todo)">save</a>
+                      <a class="btn btn-link text-danger" href="" ng-click="deleteTodo(todo, $index)">delete</a>
+                    </div>                    
+                  </li>
+                </ul>
+                <button class="btn btn-secondary" ng-click="helloWorld()">Debug</button>
+          </div>
+        </div>
+     </div>
+    <script src="bundle.js"></script>
+ </body>
+</html>

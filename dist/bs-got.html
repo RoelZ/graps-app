@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+ <head>
+   <title>Game of Thrones - Finale</title>
+   <base href="/">
+ </head>
+ <body ng-app="gotVoteApp">
+     <div class="jumbotron jumbotron-fluid bg-white">
+       <div class="container">
+         <img src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/series_logos_game-of-thrones.jpg/_jcr_content/renditions/original" class="img-fluid" alt="Game of Thrones">         
+         <p class="lead text-center">Who dies first?</p>
+       </div>
+     </div>
+     <div ng-controller="mainCtrl">
+
+        <ul id="hexGrid">
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="#">
+                <img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt="" />
+                <h1>This is a title</h1>
+                <p>Some sample text about the article this hexagon leads to</p>
+              </a>
+            </div>
+          </li>
+
+     <!-- <div class="container">
+        <div class="row">
+          <div class="col">
+              <div class="card-deck">
+                <div class="card text-center" ng-repeat="member in cast" ng-class="{active:selected}" ng-click="selected = !selected; addTo(member.character)">
+                  <img src="{{member.image}}" class="card-img-top rounded-circle mx-auto p-3 pb-0" alt="{{member.character}}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{member.character}}</h5>
+                    <p class="card-text"><small class="text-muted">{{member.actor}}</small></p>
+                  </div>
+                </div>
+              </div>
+        </div>
+     </div>
+    </div>   -->
+
+    <div class="fixed-bottom fade" ng-class="{show:totalSelection}">
+     <nav id="myCollapse" class="navbar navbar-dark bg-dark" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <small class="text-white">Selected {{totalSelection}} character</small>  
+     </nav>
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="row bg-dark p-4">
+          <div class="col-3">
+            <h5 class="text-white">Episode 3</h5>
+            <ul class="list-group" dnd-list="deathList.A">
+              <li class="list-group-item bg-dark" ng-repeat="member in deathList.A" 
+                dnd-draggable="member"
+                dnd-moved="deathList.A.splice($index, 1)"
+                dnd-effect-allowed="move">
+                <span class="navbar-toggler-icon navbar-light-toggler-icon"></span>
+                <span class="text-white">{{member.name}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="text-white">Episode 4</h5>
+            <ul class="list-group" dnd-list="deathList.B">
+              <li class="list-group-item bg-dark" ng-repeat="member in deathList.B" 
+                dnd-draggable="member"
+                dnd-moved="deathList.B.splice($index, 1)"
+                dnd-effect-allowed="move">
+                <span class="navbar-toggler-icon navbar-light-toggler-icon"></span>
+                <span class="text-white">{{member.name}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="text-white">Episode 5</h5>
+            <ul class="list-group" dnd-list="deathList.C">
+              <li class="list-group-item bg-dark" ng-repeat="member in deathList.C" 
+                dnd-draggable="member"
+                dnd-moved="deathList.C.splice($index, 1)"
+                dnd-effect-allowed="move">
+                <span class="navbar-toggler-icon navbar-light-toggler-icon"></span>
+                <span class="text-white">{{member.name}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="text-white">Episode 6</h5>
+            <ul class="list-group" dnd-list="deathList.D">
+              <li class="list-group-item bg-dark" ng-repeat="member in deathList.D" 
+                dnd-draggable="member"
+                dnd-moved="deathList.D.splice($index, 1)"
+                dnd-effect-allowed="move">
+                <span class="navbar-toggler-icon navbar-light-toggler-icon"></span>
+                <span class="text-white">{{member.name}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </div>
+    <script src="bundle.js"></script>
+ </body>
+</html>
